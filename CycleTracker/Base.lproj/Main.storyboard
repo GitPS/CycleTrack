@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8u-hQ-fod">
-                                <rect key="frame" x="117" y="119" width="87" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="71" y="414" width="179" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -27,28 +27,37 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5X-Gm-s9k">
-                                <rect key="frame" x="115" y="193" width="90" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="95" y="207" width="131" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Goals">
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="gup-MW-1Db" kind="push" id="fqI-00-ixB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKp-H2-uTn">
-                                <rect key="frame" x="111" y="271" width="99" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="31" y="114" width="259" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Workout">
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hHX-53-Apu" kind="push" id="ONU-oA-N4x"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-Fw-Gr8">
-                                <rect key="frame" x="114" y="347" width="93" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="69" y="311" width="182" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="History">
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="CYS-UT-5Oq" kind="push" id="xMG-14-hHr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,7 +85,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJW-XA-uO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013" y="479"/>
+            <point key="canvasLocation" x="977" y="340"/>
+        </scene>
+        <!--Workout-->
+        <scene sceneID="ajj-jZ-JJ7">
+            <objects>
+                <viewController id="hHX-53-Apu" customClass="WorkoutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m2z-S0-6uY"/>
+                        <viewControllerLayoutGuide type="bottom" id="5BU-XP-328"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kPJ-bn-bDR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-mw-axl">
+                                <rect key="frame" x="16" y="72" width="66" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l58-lX-qX4">
+                                <rect key="frame" x="130" y="72" width="60" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNl-rN-zky">
+                                <rect key="frame" x="250" y="72" width="54" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Workout" id="yyK-Dd-Psb"/>
+                    <connections>
+                        <outlet property="pauseButton" destination="l58-lX-qX4" id="b7f-Yw-Hza"/>
+                        <outlet property="startButton" destination="y6K-mw-axl" id="eCI-aB-amu"/>
+                        <outlet property="stopButton" destination="jNl-rN-zky" id="4Ji-8y-36T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cce-kb-9xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="340"/>
+        </scene>
+        <!--Goals-->
+        <scene sceneID="uzj-px-72i">
+            <objects>
+                <viewController id="gup-MW-1Db" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5uw-d6-qfy"/>
+                        <viewControllerLayoutGuide type="bottom" id="QT0-vd-JlR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xfM-5D-CXK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Goals" id="dCO-hi-DHb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N47-id-opW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="962"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="xPj-3n-kkW">
+            <objects>
+                <viewController id="CYS-UT-5Oq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Wa-Oa-NGc"/>
+                        <viewControllerLayoutGuide type="bottom" id="szd-Pj-GwM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nnA-mc-onv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" id="weD-RE-5LB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6c-or-cDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1332" y="958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IzN-p6-2PP">

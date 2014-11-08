@@ -1,23 +1,25 @@
 //
-//  SettingsViewController.m
+//  WorkoutViewController.m
 //  CycleTracker
 //
-//  Created by Phillip Sime on 11/7/14.
+//  Created by Phillip Sime on 11/8/14.
 //  Copyright (c) 2014 Phil Sime. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "WorkoutViewController.h"
 
-@interface SettingsViewController ()
+@interface WorkoutViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *startButton;
+@property (strong, nonatomic) IBOutlet UIButton *pauseButton;
+@property (strong, nonatomic) IBOutlet UIButton *stopButton;
 
 @end
 
-@implementation SettingsViewController
+@implementation WorkoutViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"chris_hoy.png"]]];
 }
 
 - (void)didReceiveMemoryWarning {

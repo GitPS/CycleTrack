@@ -15,6 +15,7 @@
 		4A03EA731A0DCE740096D9E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */; };
 		4A03EA7F1A0DCE740096D9E5 /* CycleTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */; };
 		4A03EA8D1A0DD87B0096D9E5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */; };
+		4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTrackerTests.m; sourceTree = "<group>"; };
 		4A03EA8B1A0DD87B0096D9E5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		4A6E98A01A0E7767008A5D52 /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
+		4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				4A03EA6F1A0DCE740096D9E5 /* Images.xcassets */,
 				4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */,
 				4A03EA621A0DCE740096D9E5 /* Supporting Files */,
+				4A6E98A01A0E7767008A5D52 /* WorkoutViewController.h */,
+				4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */,
 			);
 			path = CycleTracker;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			files = (
 				4A03EA6B1A0DCE740096D9E5 /* ViewController.m in Sources */,
 				4A03EA681A0DCE740096D9E5 /* AppDelegate.m in Sources */,
+				4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */,
 				4A03EA651A0DCE740096D9E5 /* main.m in Sources */,
 				4A03EA8D1A0DD87B0096D9E5 /* SettingsViewController.m in Sources */,
 			);

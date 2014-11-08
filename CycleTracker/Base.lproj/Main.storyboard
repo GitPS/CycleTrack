@@ -62,7 +62,7 @@
         <!--Settings-->
         <scene sceneID="REf-sN-czn">
             <objects>
-                <viewController id="mSk-4N-2BN" sceneMemberID="viewController">
+                <viewController id="mSk-4N-2BN" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1t0-2x-Ao5"/>
                         <viewControllerLayoutGuide type="bottom" id="KwR-cD-ivH"/>

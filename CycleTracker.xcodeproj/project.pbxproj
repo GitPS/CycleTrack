@@ -15,6 +15,10 @@
 		4A03EA731A0DCE740096D9E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */; };
 		4A03EA7F1A0DCE740096D9E5 /* CycleTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */; };
 		4A03EA8D1A0DD87B0096D9E5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */; };
+		4A2B88321A17C26200CE4BFC /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88311A17C26200CE4BFC /* WFConnector.framework */; };
+		4A2B88341A17C2FF00CE4BFC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */; };
+		4A2B88361A17C30900CE4BFC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */; };
+		4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */; };
 		4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,10 @@
 		4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTrackerTests.m; sourceTree = "<group>"; };
 		4A03EA8B1A0DD87B0096D9E5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		4A2B88311A17C26200CE4BFC /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../wf_api/dependencies/mac_osx/WFConnector.framework; sourceTree = "<group>"; };
+		4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		4A6E98A01A0E7767008A5D52 /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +61,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */,
+				4A2B88361A17C30900CE4BFC /* CoreBluetooth.framework in Frameworks */,
+				4A2B88341A17C2FF00CE4BFC /* ExternalAccessory.framework in Frameworks */,
+				4A2B88321A17C26200CE4BFC /* WFConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +81,10 @@
 		4A03EA561A0DCE740096D9E5 = {
 			isa = PBXGroup;
 			children = (
+				4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */,
+				4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */,
+				4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */,
+				4A2B88311A17C26200CE4BFC /* WFConnector.framework */,
 				4A03EA611A0DCE740096D9E5 /* CycleTracker */,
 				4A03EA7B1A0DCE740096D9E5 /* CycleTrackerTests */,
 				4A03EA601A0DCE740096D9E5 /* Products */,
@@ -355,8 +371,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
+				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -365,8 +389,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
+				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cadenceLabel;
 @property (strong, nonatomic) NSTimer * timer;
+@property int count;
 @property double timerValue;
 
 @end

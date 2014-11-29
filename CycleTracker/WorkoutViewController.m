@@ -118,6 +118,8 @@
         _timerValue = [(NSNumber *)[_workoutDictionary objectForKey:@"TimerValue"] doubleValue];
         [self returnToActiveSession];
     }
+    // Set background image
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
 }
 
 - (void)didReceiveMemoryWarning {

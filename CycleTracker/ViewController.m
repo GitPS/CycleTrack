@@ -28,7 +28,7 @@
     NSLog(@"viewDidLoad");
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"chris_hoy.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
     if(!_workoutDictionary){
         _workoutDictionary = [[NSMutableDictionary alloc] init];
         [_workoutDictionary setObject:@"Test" forKey:@"test"];

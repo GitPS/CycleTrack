@@ -108,7 +108,6 @@
 			children = (
 				4A03EA661A0DCE740096D9E5 /* AppDelegate.h */,
 				4A03EA671A0DCE740096D9E5 /* AppDelegate.m */,
-				4A03EA6F1A0DCE740096D9E5 /* Images.xcassets */,
 				4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */,
 				4A03EA6C1A0DCE740096D9E5 /* Main.storyboard */,
 				4A95BFA81A216DC700220981 /* NavigationController.h */,
@@ -119,6 +118,7 @@
 				4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */,
 				4A03EA691A0DCE740096D9E5 /* ViewController.h */,
 				4A03EA6A1A0DCE740096D9E5 /* ViewController.m */,
+				4A03EA6F1A0DCE740096D9E5 /* Images.xcassets */,
 				4A03EA621A0DCE740096D9E5 /* Supporting Files */,
 			);
 			path = CycleTracker;

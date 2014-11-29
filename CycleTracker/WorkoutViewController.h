@@ -10,4 +10,6 @@
 
 @interface WorkoutViewController : UIViewController
 
+@property (strong,nonatomic) NSMutableDictionary * workoutDictionary;
+
 @end

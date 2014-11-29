@@ -10,12 +10,18 @@
 
 @interface ViewController ()
 
+@property (strong,nonatomic) NSMutableDictionary * workoutDictionary;
+
 @end
 
 @implementation ViewController
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"prepareForSegue");
+    NSLog(@"prepareForSegue id = %@", segue.identifier);
+    if([segue.identifier  isEqual: @"workoutSegue"]){
+        WorkoutViewController *workoutView = (WorkoutViewController *)[segue destinationViewController];
+        workoutView.workoutDictionary = self.workoutDictionary;
+    }
 }
 
 - (void)viewDidLoad {
@@ -23,6 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"chris_hoy.png"]]];
+    if(!_workoutDictionary){
+        _workoutDictionary = [[NSMutableDictionary alloc] init];
+        [_workoutDictionary setObject:@"Test" forKey:@"test"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cadenceLabel;
 @property (strong, nonatomic) NSTimer * timer;
-@property int count;
 @property double timerValue;
 
 @end
@@ -36,6 +35,9 @@
     double minutes = fmod(trunc(_timerValue / 60.0), 60.0);
     double hours = trunc(_timerValue / 3600.0);
     self.timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    
+    // Update dictionary with timer value
+    [_workoutDictionary setObject:[NSNumber numberWithDouble:_timerValue] forKey:@"TimerValue"];
 }
 
 - (void) resetTimer {
@@ -100,24 +102,27 @@
     }
 }
 
+# pragma mark Return to active session
+
+-(void)returnToActiveSession {
+    if (_timerValue > 0) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector: @selector(incrementTimer) userInfo:NULL repeats:YES];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"viewDidLoad = %@", self.view.description);
+    if ([_workoutDictionary objectForKey:@"TimerValue"]) {
+        _timerValue = [(NSNumber *)[_workoutDictionary objectForKey:@"TimerValue"] doubleValue];
+        [self returnToActiveSession];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

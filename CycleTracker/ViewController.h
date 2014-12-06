@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutViewController.h"
+#import "GoalsViewController.h"
 
 @interface ViewController : UIViewController
 

@@ -15,12 +15,13 @@
 		4A03EA731A0DCE740096D9E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */; };
 		4A03EA7F1A0DCE740096D9E5 /* CycleTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */; };
 		4A03EA8D1A0DD87B0096D9E5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */; };
-		4A2B88321A17C26200CE4BFC /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88311A17C26200CE4BFC /* WFConnector.framework */; };
 		4A2B88341A17C2FF00CE4BFC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */; };
 		4A2B88361A17C30900CE4BFC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */; };
 		4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */; };
 		4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */; };
+		4A70B0B81A2A532F00B20116 /* GoalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70B0B71A2A532F00B20116 /* GoalsViewController.m */; };
 		4A95BFAA1A216DC700220981 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95BFA91A216DC700220981 /* NavigationController.m */; };
+		4AB2A74C1A2D5A11005BF090 /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +50,16 @@
 		4A03EA7E1A0DCE740096D9E5 /* CycleTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleTrackerTests.m; sourceTree = "<group>"; };
 		4A03EA8B1A0DD87B0096D9E5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4A03EA8C1A0DD87B0096D9E5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		4A2B88311A17C26200CE4BFC /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../wf_api/dependencies/mac_osx/WFConnector.framework; sourceTree = "<group>"; };
 		4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		4A6E98A01A0E7767008A5D52 /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
+		4A70B0B61A2A532F00B20116 /* GoalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalsViewController.h; sourceTree = "<group>"; };
+		4A70B0B71A2A532F00B20116 /* GoalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalsViewController.m; sourceTree = "<group>"; };
 		4A95BFA81A216DC700220981 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		4A95BFA91A216DC700220981 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../../FInal_Project/wf_api/dependencies/WFConnector.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB2A74C1A2D5A11005BF090 /* WFConnector.framework in Frameworks */,
 				4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */,
 				4A2B88361A17C30900CE4BFC /* CoreBluetooth.framework in Frameworks */,
 				4A2B88341A17C2FF00CE4BFC /* ExternalAccessory.framework in Frameworks */,
-				4A2B88321A17C26200CE4BFC /* WFConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,10 +87,10 @@
 		4A03EA561A0DCE740096D9E5 = {
 			isa = PBXGroup;
 			children = (
+				4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */,
 				4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */,
 				4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */,
 				4A2B88331A17C2FF00CE4BFC /* ExternalAccessory.framework */,
-				4A2B88311A17C26200CE4BFC /* WFConnector.framework */,
 				4A03EA611A0DCE740096D9E5 /* CycleTracker */,
 				4A03EA7B1A0DCE740096D9E5 /* CycleTrackerTests */,
 				4A03EA601A0DCE740096D9E5 /* Products */,
@@ -108,6 +111,8 @@
 			children = (
 				4A03EA661A0DCE740096D9E5 /* AppDelegate.h */,
 				4A03EA671A0DCE740096D9E5 /* AppDelegate.m */,
+				4A70B0B61A2A532F00B20116 /* GoalsViewController.h */,
+				4A70B0B71A2A532F00B20116 /* GoalsViewController.m */,
 				4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */,
 				4A03EA6C1A0DCE740096D9E5 /* Main.storyboard */,
 				4A95BFA81A216DC700220981 /* NavigationController.h */,
@@ -255,6 +260,7 @@
 				4A03EA681A0DCE740096D9E5 /* AppDelegate.m in Sources */,
 				4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */,
 				4A95BFAA1A216DC700220981 /* NavigationController.m in Sources */,
+				4A70B0B81A2A532F00B20116 /* GoalsViewController.m in Sources */,
 				4A03EA651A0DCE740096D9E5 /* main.m in Sources */,
 				4A03EA8D1A0DD87B0096D9E5 /* SettingsViewController.m in Sources */,
 			);
@@ -383,9 +389,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
+					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies,
 				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-all_load",
@@ -393,6 +401,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -405,9 +414,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
+					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies,
 				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-all_load",
@@ -415,6 +426,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};

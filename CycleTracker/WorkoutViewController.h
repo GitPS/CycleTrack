@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import <WFConnector/WFHardwareConnector.h>
+#import <WFConnector/WFConnector.h>
 
-@interface WorkoutViewController : UIViewController
+@interface WorkoutViewController : UIViewController {    
+    WFHardwareConnector* hardwareConnector;
+    
+    UILabel* sensorTypeLabel;
+    UILabel* networksLabel;
+    UITableView* discoveredTable;
+    
+    NSMutableArray* discoveredSensors;
+    UCHAR ucDiscoveryCount;
+}
 
-@property (strong,nonatomic) NSMutableDictionary * workoutDictionary;
+@property (strong,nonatomic) NSMutableDictionary * appDictionary;
+
 
 @end

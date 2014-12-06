@@ -10,7 +10,7 @@
 
 @interface ViewController ()
 
-@property (strong,nonatomic) NSMutableDictionary * workoutDictionary;
+@property (strong,nonatomic) NSMutableDictionary * appDictionary;
 
 @end
 
@@ -20,7 +20,10 @@
     NSLog(@"prepareForSegue id = %@", segue.identifier);
     if([segue.identifier  isEqual: @"workoutSegue"]){
         WorkoutViewController *workoutView = (WorkoutViewController *)[segue destinationViewController];
-        workoutView.workoutDictionary = self.workoutDictionary;
+        workoutView.appDictionary = self.appDictionary;
+    } else if ([segue.identifier isEqual:@"goalSegue"]){
+        GoalsViewController *goalView = (GoalsViewController *)[segue destinationViewController];
+        goalView.appDictionary = self.appDictionary;
     }
 }
 
@@ -29,9 +32,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
-    if(!_workoutDictionary){
-        _workoutDictionary = [[NSMutableDictionary alloc] init];
-        [_workoutDictionary setObject:@"Test" forKey:@"test"];
+    if(!_appDictionary){
+        _appDictionary = [[NSMutableDictionary alloc] init];
+        
+        // Set defaults
+        [_appDictionary setObject:[NSNumber numberWithInt:80] forKey:@"CadenceGoal"];
     }
 }
 

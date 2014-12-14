@@ -13,12 +13,18 @@
 @property (strong, nonatomic) IBOutlet UIButton *startButton;
 @property (strong, nonatomic) IBOutlet UIButton *pauseButton;
 @property (strong, nonatomic) IBOutlet UIButton *stopButton;
+@property (strong, nonatomic) IBOutlet UIButton *connectDisconnectButton;
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cadenceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *caloriesLabel;
+@property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
+
 @property (strong, nonatomic) NSTimer * timer;
+
 @property double timerValue;
 @property BOOL isWorkoutInProgress;
-@property (strong, nonatomic) IBOutlet UIButton *connectDisconnectButton;
+@property double caloriesBurned;
+@property int lastValidCadence;
 
 @property (nonatomic, retain) WFSensorConnection* sensorConnection;
 
@@ -33,16 +39,83 @@
     double seconds = fmod(_timerValue, 60.0);
     double minutes = fmod(trunc(_timerValue / 60.0), 60.0);
     double hours = trunc(_timerValue / 3600.0);
+    
+    // Determine color of label based on workouttime goal
+    if ((_timerValue / 60) > [[_appDictionary objectForKey:@"WorkoutTimeGoal"] doubleValue] ) {
+        self.timerLabel.textColor = [UIColor redColor];
+    } else {
+        self.timerLabel.textColor = [UIColor cyanColor];
+    }
+    
     self.timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    
+    // Update progress bar
+    [self updateProgressBar];
+    
+    // Update calories burned every 10 seconds
+    if (fmod(seconds, 10) < 0.1){
+        NSLog(@"Update Calories %f", seconds);
+        [self updateCaloriesBurned];
+    }
     
     // Update dictionary with timer value
     [_appDictionary setObject:[NSNumber numberWithDouble:_timerValue] forKey:@"TimerValue"];
+}
+
+- (void) updateProgressBar {
+    double goalTime = [[_appDictionary objectForKey:@"WorkoutTimeGoal"] doubleValue];
+    double currentTime = (_timerValue / 60);
+    FLOAT percentComplete = currentTime / goalTime;
+    [_progressBar setProgress:percentComplete];
+}
+
+- (void) updateCaloriesBurned {
+    int weightInKG = [self getUserWeight] / 2.2;
+    double met = [self getMETValue:_lastValidCadence];
+    double caloriesForPeriod = met * weightInKG / 60.0 / 6.0;
+    _caloriesBurned = _caloriesBurned + caloriesForPeriod;
+    [self updateCaloriesBunred:_caloriesBurned];
+}
+
+- (void) updateCaloriesBunred:(double)calories {
+    _caloriesLabel.text = [NSString stringWithFormat:@"%.1f Calories", calories];
 }
 
 - (void) resetTimer {
     NSLog(@"resetTimer");
     _timerValue = 0;
     _timerLabel.text = @"00:00:00:0";
+}
+
+# pragma mark Helpers
+
+- (int) getUserWeight {
+    NSNumber *weight = [_appDictionary objectForKey:@"WeightOfUser"];
+    
+    // If no weight use 175 as an average weight
+    if (!weight) {
+        weight = [NSNumber numberWithInteger:175];
+    }
+    
+    return [weight intValue];
+}
+
+- (int) getCadenceGoal {
+    return [(NSNumber *)[_appDictionary objectForKey:@"CadenceGoal"] intValue];
+}
+
+- (double) getMETValue:(int)cadence {
+    int met;
+    if (cadence < 60) {
+        met = 7.50;
+    } else if (cadence < 80) {
+        met = 8.00;
+    } else if (cadence < 100) {
+        met = 8.50;
+    } else {
+        met = 9.00;
+    }
+    return met;
 }
 
 # pragma mark Buttons
@@ -54,6 +127,9 @@
     if(_timer) return;
     
     _isWorkoutInProgress = YES;
+    _caloriesBurned = 0;
+    _lastValidCadence = 0;
+    
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector: @selector(incrementTimer) userInfo:NULL repeats:YES];
 }
 
@@ -80,11 +156,26 @@
         _timer = NULL;
         _timerLabel.text = @"00:00:00:0";
         _timerValue = 0;
+        
         // Ensure the pause button is reset
         [_pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        
         // Ensure the cadence label is reset
         [self updateCadenceLabel:0];
+        
+        // Ensure the calories label is reset
+        [self updateCaloriesBunred:0.0];
+        
+        // Set timer color back to default if not already
+        self.timerLabel.textColor = [UIColor cyanColor];
     }
+    
+    // Remove timer to prevent session from restarting during navigation
+    [_appDictionary removeObjectForKey:@"TimerValue"];
+    
+    // Update progress bar
+    [self updateProgressBar];
+    
     _isWorkoutInProgress = NO;
 }
 
@@ -98,10 +189,12 @@
         UIColor *color = [UIColor redColor];
         self.cadenceLabel.textColor = color;
         self.cadenceLabel.text = [NSString stringWithFormat:@"%d RPM", cadence];
+        _lastValidCadence = cadence;
     } else {
         UIColor *color = [UIColor greenColor];
         self.cadenceLabel.textColor = color;
         self.cadenceLabel.text = [NSString stringWithFormat:@"%d RPM", cadence];
+        _lastValidCadence = cadence;
     }
 }
 
@@ -109,12 +202,10 @@
 {
     bool isValid = NO;
     
-    if([self.sensorConnection isKindOfClass:[WFBikeSpeedCadenceConnection class]])
-    {
+    if([self.sensorConnection isKindOfClass:[WFBikeSpeedCadenceConnection class]]) {
         WFBikeSpeedCadenceConnection* bikeSCConnection = (WFBikeSpeedCadenceConnection*)self.sensorConnection;
         
-        if(bikeSCConnection.connectionStatus == WF_SENSOR_CONNECTION_STATUS_CONNECTED)
-        {
+        if(bikeSCConnection.connectionStatus == WF_SENSOR_CONNECTION_STATUS_CONNECTED) {
             isValid=YES;
             WFBikeSpeedCadenceData *data = [bikeSCConnection getBikeSpeedCadenceData];
             if ([data formattedCadence:NO] != NULL) {
@@ -122,13 +213,10 @@
             } else {
                 [self updateCadenceLabel:0];
             }
-            NSLog(@"Data receieved...");
-            NSLog(@"Current cadence = %@", [[bikeSCConnection getBikeSpeedCadenceData] formattedCadence:YES]);
         }
     }
     
-    if(!isValid)
-    {
+    if(!isValid) {
         [self updateCadenceLabel:0];
     }
 }
@@ -147,12 +235,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     NSLog(@"viewDidLoad = %@", self.view.description);
     if ([_appDictionary objectForKey:@"TimerValue"]) {
         _timerValue = [(NSNumber *)[_appDictionary objectForKey:@"TimerValue"] doubleValue];
         [self returnToActiveSession];
     }
+    
     // Set background image
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
     
@@ -176,45 +266,28 @@
     [hardwareConnector setSampleTimerDataCheck:FALSE];
     [hardwareConnector setSampleRate:1.0];
     [hardwareConnector enableBTLE:YES];
-    
-    NSLog(@"API VERSION:  %@", hardwareConnector.apiVersion);
-    NSLog(@"Has BTLE: %@", hardwareConnector.hasBTLESupport ? @"YES" : @"NO");
 }
 
 - (void)toggleConnection {
-        //--------------------------------------------------------------------
-        // Sensor Type
         WFSensorType_t sensorType = WF_SENSORTYPE_BIKE_SPEED_CADENCE;
-        
-        //--------------------------------------------------------------------
-        // Current Connection Status
         WFSensorConnectionStatus_t connState = WF_SENSOR_CONNECTION_STATUS_IDLE;
         
-        if ( self.sensorConnection != nil )
-        {
+        if ( self.sensorConnection != nil ) {
             connState = self.sensorConnection.connectionStatus;
         }
-        
-        //--------------------------------------------------------------------
-        // Toggle Connection
-        switch (connState)
-        {
-            case WF_SENSOR_CONNECTION_STATUS_IDLE:
-            {
+    
+        switch (connState) {
+            case WF_SENSOR_CONNECTION_STATUS_IDLE: {
                 WFConnectionParams* params = NULL;
                 params = [hardwareConnector.settings connectionParamsForSensorType:sensorType];
                 
-                if ( params != NULL)
-                {
+                if ( params != NULL) {
                     NSError* error = NULL;
                     self.sensorConnection = [hardwareConnector requestSensorConnection:params];
                     
-                    if(error!=nil)
-                    {
+                    if(error!=nil) {
                         NSLog(@"ERROR: %@", error);
                     }
-                    
-                    // set delegate to receive connection status changes.
                     self.sensorConnection.delegate = self;
                 }
                 break;
@@ -232,21 +305,19 @@
                 // do nothing.
                 break;
         }
+    
     [self updateConnectButton];
 }
 
-- (void) updateConnectButton
-{
+- (void) updateConnectButton {
     // get the current connection status.
     WFSensorConnectionStatus_t connState = WF_SENSOR_CONNECTION_STATUS_IDLE;
-    if ( self.sensorConnection != nil )
-    {
+    if ( self.sensorConnection != nil ) {
         connState = self.sensorConnection.connectionStatus;
     }
     
     // set the button state based on the connection state.
-    switch (connState)
-    {
+    switch (connState) {
         case WF_SENSOR_CONNECTION_STATUS_IDLE:
             [self.connectDisconnectButton setTitle:@"Connect to Cadence Monitor" forState:UIControlStateNormal];
             break;
@@ -266,34 +337,19 @@
     
 }
 
-//--------------------------------------------------------------------------------
-- (void)hardwareConnectorHasData
-{
+- (void)hardwareConnectorHasData {
     [self updateData];
 }
 
 #pragma mark -
 #pragma mark WFSensorConnectionDelegate Implementation
 
-//--------------------------------------------------------------------------------
-- (void)connection:(WFSensorConnection*)connectionInfo stateChanged:(WFSensorConnectionStatus_t)connState
-{
-    // check for a valid connection.
-    if (connectionInfo.isValid)
-    {
-        // update the stored connection settings.
+- (void)connection:(WFSensorConnection*)connectionInfo stateChanged:(WFSensorConnectionStatus_t)connState {
+    if (connectionInfo.isValid) {
         [[WFHardwareConnector sharedConnector].settings saveConnectionInfo:connectionInfo];
-        
-        // update the display.
-        [self updateData];
     }
     
-    // check for disconnected sensor.
-    else if ( connState == WF_SENSOR_CONNECTION_STATUS_IDLE )
-    {
-        // reset the display.
-    }
-    
+    [self updateData];
     [self updateConnectButton];
 }
 

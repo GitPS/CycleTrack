@@ -13,9 +13,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *cadenceLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *cadenceStepper;
 @property (strong, nonatomic) IBOutlet UILabel *workoutTimeLabel;
+@property (strong, nonatomic) IBOutlet UIStepper *workoutTimeStepper;
 @property (strong, nonatomic) NSNumber *workoutTime;
 @property (strong, nonatomic) NSNumber *cadence;
-@property (strong, nonatomic) IBOutlet UIStepper *workoutTimeStepper;
 
 @end
 
@@ -32,10 +32,6 @@
     _workoutTimeLabel.text = [NSString stringWithFormat:@"%@ minutes", _workoutTime];
 }
 
-- (void)updateCadenceLabel {
-    _cadenceLabel.text = [NSString stringWithFormat:@"%@ RPM", _cadence];
-}
-
 - (IBAction)cadenceChange:(id)sender {
     UIStepper *stepper = sender;
     _cadence = [NSNumber numberWithInt:stepper.value];
@@ -43,9 +39,15 @@
     [self updateCadenceLabel];
 }
 
+- (void)updateCadenceLabel {
+    _cadenceLabel.text = [NSString stringWithFormat:@"%@ RPM", _cadence];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    // Set background image
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
     
     if([_appDictionary objectForKey:@"CadenceGoal"]){
         _cadence = (NSNumber *)[_appDictionary objectForKey:@"CadenceGoal"];
@@ -57,7 +59,7 @@
     _cadenceStepper.value = [_cadence doubleValue];
     
     if([_appDictionary objectForKey:@"WorkoutTimeGoal"]){
-        _workoutTime = (NSNumber *)[_appDictionary objectForKey:@"WorkoutTime"];
+        _workoutTime = (NSNumber *)[_appDictionary objectForKey:@"WorkoutTimeGoal"];
         
     } else {
         _workoutTime = [NSNumber numberWithInt:5];
@@ -76,13 +78,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

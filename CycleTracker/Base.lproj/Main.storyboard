@@ -23,7 +23,7 @@
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mSk-4N-2BN" kind="push" id="P6c-6c-fEa"/>
+                                    <segue destination="mSk-4N-2BN" kind="push" identifier="settingsSegue" id="P6c-6c-fEa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKp-H2-uTn">
@@ -85,13 +85,60 @@
                     <view key="view" contentMode="scaleToFill" id="4t9-fr-Ksq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-wG-xWJ">
+                                <rect key="frame" x="85" y="152" width="83" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight (lbs)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-ok-Eb1">
+                                <rect key="frame" x="85" y="282" width="160" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zA-vF-fXe">
+                                <rect key="frame" x="85" y="430" width="224" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIK-vW-59l">
+                                <rect key="frame" x="275" y="157" width="284" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="nameModified:" destination="mSk-4N-2BN" eventType="editingDidEnd" id="NWE-O0-exa"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-gz-eT9">
+                                <rect key="frame" x="275" y="287" width="284" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="weightModified:" destination="mSk-4N-2BN" eventType="editingDidEnd" id="uXF-ST-LfS"/>
+                                </connections>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-pa-Igc">
+                                <rect key="frame" x="393" y="432" width="51" height="31"/>
+                                <connections>
+                                    <action selector="saveWorkoutModified:" destination="mSk-4N-2BN" eventType="valueChanged" id="0VO-bP-l8G"/>
+                                </connections>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="h4W-8l-yHV"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="RIK-vW-59l" id="oHv-Yl-WA2"/>
+                        <outlet property="weightTextField" destination="Cho-gz-eT9" id="ixl-XQ-xeH"/>
+                        <outlet property="workoutSaveToggle" destination="TgS-pa-Igc" id="ZHh-X4-M3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJW-XA-uO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344.8000000000002" y="612.95774647887322"/>
+            <point key="canvasLocation" x="2344" y="612"/>
         </scene>
         <!--Workout-->
         <scene sceneID="ajj-jZ-JJ7">
@@ -106,31 +153,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00:00:0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw7-Hm-TaX">
-                                <rect key="frame" x="168" y="306" width="432" height="103"/>
+                                <rect key="frame" x="168" y="241" width="432" height="103"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <color key="textColor" red="0.740384759" green="0.94808682580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0 RPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsC-tD-Mp6">
-                                <rect key="frame" x="240" y="466" width="288" height="76"/>
+                                <rect key="frame" x="240" y="546" width="288" height="76"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xji-Ff-EWB">
-                                <rect key="frame" x="344" y="417" width="80" height="21"/>
+                                <rect key="frame" x="344" y="212" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.21371054780000001" green="0.50664076769999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cadence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbQ-FG-JFR">
-                                <rect key="frame" x="344" y="550" width="80" height="21"/>
+                                <rect key="frame" x="344" y="517" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.21371054780000001" green="0.50664076769999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-mw-axl">
-                                <rect key="frame" x="151" y="195" width="150" height="50"/>
+                                <rect key="frame" x="151" y="130" width="150" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,7 +188,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNl-rN-zky">
-                                <rect key="frame" x="467" y="195" width="150" height="50"/>
+                                <rect key="frame" x="467" y="130" width="150" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,7 +199,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l58-lX-qX4">
-                                <rect key="frame" x="309" y="195" width="150" height="50"/>
+                                <rect key="frame" x="309" y="130" width="150" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Pause">
                                     <color key="titleColor" red="1" green="0.66298552740000005" blue="0.21121962729999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,8 +209,13 @@
                                     <action selector="pauseWorkout:" destination="hHX-53-Apu" eventType="touchUpInside" id="W4A-fr-4na"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yve-RL-MQq">
+                                <rect key="frame" x="16" y="358" width="736" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NU-Ag-Bah">
-                                <rect key="frame" x="210" y="657" width="349" height="30"/>
+                                <rect key="frame" x="210" y="630" width="349" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Connect">
                                     <color key="titleColor" red="0.0" green="1" blue="0.11265480283820217" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,6 +225,18 @@
                                     <action selector="connectDisconnectButton:" destination="hHX-53-Apu" eventType="touchUpInside" id="daO-At-2Tj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alA-Dg-6QK">
+                                <rect key="frame" x="344" y="398" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz9-TK-eB0">
+                                <rect key="frame" x="153" y="427" width="463" height="57"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="1" green="0.033515225279999998" blue="0.67611420290000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -182,6 +246,7 @@
                             <constraint firstAttribute="centerX" secondItem="vsC-tD-Mp6" secondAttribute="centerX" id="W9F-mR-VTX"/>
                             <constraint firstItem="l58-lX-qX4" firstAttribute="leading" secondItem="y6K-mw-axl" secondAttribute="trailing" constant="8" id="fyQ-2J-f3E"/>
                             <constraint firstItem="jNl-rN-zky" firstAttribute="leading" secondItem="l58-lX-qX4" secondAttribute="trailing" constant="8" id="jY0-4H-mAz"/>
+                            <constraint firstAttribute="centerX" secondItem="yve-RL-MQq" secondAttribute="centerX" id="kDn-NR-z9L"/>
                             <constraint firstAttribute="centerX" secondItem="5NU-Ag-Bah" secondAttribute="centerX" constant="-0.5" id="r5j-67-HKJ"/>
                             <constraint firstAttribute="centerX" secondItem="l58-lX-qX4" secondAttribute="centerX" id="rvA-0R-1uo"/>
                         </constraints>
@@ -189,8 +254,10 @@
                     <navigationItem key="navigationItem" title="Workout" id="yyK-Dd-Psb"/>
                     <connections>
                         <outlet property="cadenceLabel" destination="vsC-tD-Mp6" id="85j-Un-Alo"/>
+                        <outlet property="caloriesLabel" destination="jz9-TK-eB0" id="7BF-5X-ctG"/>
                         <outlet property="connectDisconnectButton" destination="5NU-Ag-Bah" id="tpg-a1-soa"/>
                         <outlet property="pauseButton" destination="l58-lX-qX4" id="b7f-Yw-Hza"/>
+                        <outlet property="progressBar" destination="yve-RL-MQq" id="KZp-tv-eqU"/>
                         <outlet property="startButton" destination="y6K-mw-axl" id="eCI-aB-amu"/>
                         <outlet property="stopButton" destination="jNl-rN-zky" id="4Ji-8y-36T"/>
                         <outlet property="timerLabel" destination="Mw7-Hm-TaX" id="Rnw-gs-MjT"/>

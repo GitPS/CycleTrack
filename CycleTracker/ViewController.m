@@ -27,6 +27,9 @@
     } else if ([segue.identifier isEqual:@"settingsSegue"]){
         SettingsViewController *settingsView = (SettingsViewController *)[segue destinationViewController];
         settingsView.appDictionary = self.appDictionary;
+    } else if ([segue.identifier isEqual:@"historySegue"]){
+        HistoryTableTableViewController *historyView = (HistoryTableTableViewController *)[segue destinationViewController];
+        historyView.appDictionary = self.appDictionary;
     }
 }
 
@@ -42,6 +45,9 @@
         [_appDictionary setObject:[NSNumber numberWithInt:80] forKey:@"CadenceGoal"];
         [_appDictionary setObject:[NSNumber numberWithInt:60] forKey:@"WorkoutTimeGoal"];
         [_appDictionary setObject:[NSNumber numberWithInt:175] forKey:@"WeightOfUser"];
+        
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [_appDictionary setObject:array forKey:@"CurrentSession"];
     }
 }
 

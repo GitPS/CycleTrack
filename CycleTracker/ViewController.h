@@ -10,6 +10,7 @@
 #import "WorkoutViewController.h"
 #import "GoalsViewController.h"
 #import "SettingsViewController.h"
+#import "HistoryTableTableViewController.h"
 
 @interface ViewController : UIViewController
 

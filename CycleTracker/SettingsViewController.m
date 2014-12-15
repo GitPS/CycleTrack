@@ -45,7 +45,8 @@
     }
     
     if ([_appDictionary objectForKey:@"WeightOfUser"]) {
-        _weightTextField.text = [_appDictionary objectForKey:@"WeightOfUser"];
+        NSNumber *weight = [_appDictionary objectForKey:@"WeightOfUser"];
+        _weightTextField.text = [NSString stringWithFormat:@"%@", weight];
     }
     
     if ([_appDictionary objectForKey:@"WorkoutToggleStatus"]) {

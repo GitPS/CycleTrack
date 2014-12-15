@@ -20,6 +20,7 @@
 		4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */; };
 		4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */; };
 		4A70B0B81A2A532F00B20116 /* GoalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70B0B71A2A532F00B20116 /* GoalsViewController.m */; };
+		4A7B3AC31A3E65A4004D8B73 /* HistoryTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B3AC21A3E65A4004D8B73 /* HistoryTableTableViewController.m */; };
 		4A95BFAA1A216DC700220981 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95BFA91A216DC700220981 /* NavigationController.m */; };
 		4AB2A74C1A2D5A11005BF090 /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,8 @@
 		4A6E98A11A0E7767008A5D52 /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		4A70B0B61A2A532F00B20116 /* GoalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalsViewController.h; sourceTree = "<group>"; };
 		4A70B0B71A2A532F00B20116 /* GoalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalsViewController.m; sourceTree = "<group>"; };
+		4A7B3AC11A3E65A4004D8B73 /* HistoryTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableTableViewController.h; sourceTree = "<group>"; };
+		4A7B3AC21A3E65A4004D8B73 /* HistoryTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableTableViewController.m; sourceTree = "<group>"; };
 		4A95BFA81A216DC700220981 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		4A95BFA91A216DC700220981 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../../FInal_Project/wf_api/dependencies/WFConnector.framework; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 			children = (
 				4A03EA661A0DCE740096D9E5 /* AppDelegate.h */,
 				4A03EA671A0DCE740096D9E5 /* AppDelegate.m */,
+				4A7B3AC11A3E65A4004D8B73 /* HistoryTableTableViewController.h */,
+				4A7B3AC21A3E65A4004D8B73 /* HistoryTableTableViewController.m */,
 				4A70B0B61A2A532F00B20116 /* GoalsViewController.h */,
 				4A70B0B71A2A532F00B20116 /* GoalsViewController.m */,
 				4A03EA711A0DCE740096D9E5 /* LaunchScreen.xib */,
@@ -259,6 +264,7 @@
 				4A03EA6B1A0DCE740096D9E5 /* ViewController.m in Sources */,
 				4A03EA681A0DCE740096D9E5 /* AppDelegate.m in Sources */,
 				4A6E98A21A0E7767008A5D52 /* WorkoutViewController.m in Sources */,
+				4A7B3AC31A3E65A4004D8B73 /* HistoryTableTableViewController.m in Sources */,
 				4A95BFAA1A216DC700220981 /* NavigationController.m in Sources */,
 				4A70B0B81A2A532F00B20116 /* GoalsViewController.m in Sources */,
 				4A03EA651A0DCE740096D9E5 /* main.m in Sources */,

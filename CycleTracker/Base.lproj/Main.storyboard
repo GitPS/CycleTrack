@@ -45,7 +45,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CYS-UT-5Oq" kind="push" id="xMG-14-hHr"/>
+                                    <segue destination="NuZ-y9-ZIv" kind="push" identifier="historySegue" id="wd8-Ft-lqx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5X-Gm-s9k">
@@ -340,24 +340,40 @@
             </objects>
             <point key="canvasLocation" x="2344" y="1734"/>
         </scene>
-        <!--History-->
-        <scene sceneID="xPj-3n-kkW">
+        <!--History Table Table View Controller-->
+        <scene sceneID="Jmv-Dc-P5S">
             <objects>
-                <viewController title="History" id="CYS-UT-5Oq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aJo-Gf-h0x"/>
-                        <viewControllerLayoutGuide type="bottom" id="khF-o2-ueV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nnA-mc-onv">
+                <tableViewController id="NuZ-y9-ZIv" customClass="HistoryTableTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UY9-rm-f0X">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="History" id="weD-RE-5LB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z6c-or-cDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" textLabel="Cye-d6-p8M" style="IBUITableViewCellStyleDefault" id="ItX-7f-GZ9">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ItX-7f-GZ9" id="16r-Wj-Wsp">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cye-d6-p8M">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NuZ-y9-ZIv" id="4RR-Gf-mWg"/>
+                            <outlet property="delegate" destination="NuZ-y9-ZIv" id="h6y-k1-RfH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4Iy-fX-4ql"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ynb-AM-wT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196.8000000000002" y="1727.0985915492956"/>
+            <point key="canvasLocation" x="3189" y="1734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IzN-p6-2PP">

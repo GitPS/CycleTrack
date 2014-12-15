@@ -52,10 +52,10 @@
     // Update progress bar
     [self updateProgressBar];
     
-    // Update calories burned every 10 seconds
+    // Update history and calories burned every 10 seconds
     if (fmod(seconds, 10) < 0.1){
-        NSLog(@"Update Calories %f", seconds);
         [self updateCaloriesBurned];
+        [self updateHistory:hours withMinutes:minutes andSeconds:seconds];
     }
     
     // Update dictionary with timer value
@@ -87,6 +87,17 @@
     _timerLabel.text = @"00:00:00:0";
 }
 
+- (void) updateHistory:(double)hours withMinutes:(double)minutes andSeconds:(double)seconds {
+    if ([self getShouldLogWorkout]) {
+        NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+        [DateFormatter setDateFormat:@"dd-MM-YYYY hh:mm:ss"];
+        NSString *timeStamp = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+        NSString *workoutString = [NSString stringWithFormat:@"%@ \n%@ \nCalories Burned: %.1f \nCadence: %d", [DateFormatter stringFromDate:[NSDate date]], timeStamp, _caloriesBurned, _lastValidCadence];
+        NSMutableArray *array = [self getCurrentSession];
+        [array addObject:workoutString];
+    }
+}
+
 # pragma mark Helpers
 
 - (int) getUserWeight {
@@ -104,6 +115,14 @@
     return [(NSNumber *)[_appDictionary objectForKey:@"CadenceGoal"] intValue];
 }
 
+- (BOOL) getShouldLogWorkout {
+    NSNumber *n = [_appDictionary objectForKey:@"WorkoutToggleStatus"];
+    if(!n){
+        n = [NSNumber numberWithBool:NO];
+    }
+    return [n boolValue];
+}
+
 - (double) getMETValue:(int)cadence {
     int met;
     if (cadence < 60) {
@@ -116,6 +135,14 @@
         met = 9.00;
     }
     return met;
+}
+
+- (NSMutableArray *) getCurrentSession {
+    NSMutableArray *array = [_appDictionary objectForKey:@"CurrentSession"];
+    if (!array) {
+        array = [[NSMutableArray alloc] init];
+    }
+    return array;
 }
 
 # pragma mark Buttons
@@ -175,6 +202,10 @@
     
     // Update progress bar
     [self updateProgressBar];
+    
+    // Reset history array
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    [_appDictionary setObject:array forKey:@"CurrentSession"];
     
     _isWorkoutInProgress = NO;
 }

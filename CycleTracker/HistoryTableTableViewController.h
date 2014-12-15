@@ -11,5 +11,6 @@
 @interface HistoryTableTableViewController : UITableViewController
 
 @property (strong,nonatomic) NSMutableDictionary * appDictionary;
+@property (strong,nonatomic) NSMutableArray * historyArray;
 
 @end

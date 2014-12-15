@@ -90,9 +90,9 @@
 - (void) updateHistory:(double)hours withMinutes:(double)minutes andSeconds:(double)seconds {
     if ([self getShouldLogWorkout]) {
         NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
-        [DateFormatter setDateFormat:@"dd-MM-YYYY hh:mm:ss"];
+        [DateFormatter setDateFormat:@"dd-MM-YYYY hh:mm"];
         NSString *timeStamp = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
-        NSString *workoutString = [NSString stringWithFormat:@"%@ \n%@ \nCalories Burned: %.1f \nCadence: %d", [DateFormatter stringFromDate:[NSDate date]], timeStamp, _caloriesBurned, _lastValidCadence];
+        NSString *workoutString = [NSString stringWithFormat:@"%@ \nWorkout Time: %@ \nCalories Burned: %.1f \nCadence: %d", [DateFormatter stringFromDate:[NSDate date]], timeStamp, _caloriesBurned, _lastValidCadence];
         NSMutableArray *array = [self getCurrentSession];
         [array addObject:workoutString];
     }
@@ -148,8 +148,6 @@
 # pragma mark Buttons
 
 - (IBAction)startWorkout:(id)sender {
-    NSLog(@"startWorkout");
-    
     // If the timer is already running don't do anything
     if(_timer) return;
     
@@ -161,7 +159,6 @@
 }
 
 - (IBAction)pauseWorkout:(id)sender {
-    NSLog(@"pauseWorkout");
     NSString *title = [_pauseButton titleForState:UIControlStateNormal];
     
     // If the timer is not yet created don't do anything
@@ -177,7 +174,6 @@
 }
 
 - (IBAction)stopWorkout:(id)sender {
-    NSLog(@"stopWorkout");
     if(_timer) {
         [_timer invalidate];
         _timer = NULL;
@@ -203,8 +199,12 @@
     // Update progress bar
     [self updateProgressBar];
     
+    // Store ended session into history array
+    NSMutableArray *array = [_appDictionary objectForKey:@"CurrentSession"];
+    [_historyArray addObject:array];
+    
     // Reset history array
-    NSMutableArray *array = [[NSMutableArray alloc] init];
+    array = [[NSMutableArray alloc] init];
     [_appDictionary setObject:array forKey:@"CurrentSession"];
     
     _isWorkoutInProgress = NO;
@@ -268,7 +268,6 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    NSLog(@"viewDidLoad = %@", self.view.description);
     if ([_appDictionary objectForKey:@"TimerValue"]) {
         _timerValue = [(NSNumber *)[_appDictionary objectForKey:@"TimerValue"] doubleValue];
         [self returnToActiveSession];

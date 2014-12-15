@@ -11,16 +11,17 @@
 @interface ViewController ()
 
 @property (strong,nonatomic) NSMutableDictionary * appDictionary;
+@property (strong,nonatomic) NSMutableArray * historyArray;
 
 @end
 
 @implementation ViewController
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"prepareForSegue id = %@", segue.identifier);
     if([segue.identifier  isEqual: @"workoutSegue"]){
         WorkoutViewController *workoutView = (WorkoutViewController *)[segue destinationViewController];
         workoutView.appDictionary = self.appDictionary;
+        workoutView.historyArray = self.historyArray;
     } else if ([segue.identifier isEqual:@"goalSegue"]){
         GoalsViewController *goalView = (GoalsViewController *)[segue destinationViewController];
         goalView.appDictionary = self.appDictionary;
@@ -30,12 +31,13 @@
     } else if ([segue.identifier isEqual:@"historySegue"]){
         HistoryTableTableViewController *historyView = (HistoryTableTableViewController *)[segue destinationViewController];
         historyView.appDictionary = self.appDictionary;
+        historyView.historyArray = self.historyArray;
     }
 }
 
 - (void)viewDidLoad {
-    NSLog(@"viewDidLoad");
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hill.png"]]];
     if(!_appDictionary){
@@ -48,6 +50,9 @@
         
         NSMutableArray *array = [[NSMutableArray alloc] init];
         [_appDictionary setObject:array forKey:@"CurrentSession"];
+    }
+    if (!_historyArray) {
+        _historyArray = [[NSMutableArray alloc] init];
     }
 }
 

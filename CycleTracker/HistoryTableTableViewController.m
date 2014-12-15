@@ -10,20 +10,12 @@
 
 @interface HistoryTableTableViewController ()
 
-@property (strong, nonatomic) NSArray *historyArray;
-
 @end
 
 @implementation HistoryTableTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _historyArray = [_appDictionary objectForKey:@"CurrentSession"];
-    
-    if (!_historyArray) {
-        self.historyArray = @[@"No data"];
-    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,19 +33,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return [_historyArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_historyArray count];
+    return [_historyArray[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"default" forIndexPath:indexPath];
     cell.textLabel.numberOfLines = 4;
-    cell.textLabel.text = self.historyArray[indexPath.row];
+    cell.textLabel.text = self.historyArray[[indexPath section]][[indexPath row]];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [NSString stringWithFormat:@"Workout %d", (section + 1)];
 }
 
 /*

@@ -22,7 +22,7 @@
 		4A70B0B81A2A532F00B20116 /* GoalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70B0B71A2A532F00B20116 /* GoalsViewController.m */; };
 		4A7B3AC31A3E65A4004D8B73 /* HistoryTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B3AC21A3E65A4004D8B73 /* HistoryTableTableViewController.m */; };
 		4A95BFAA1A216DC700220981 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95BFA91A216DC700220981 /* NavigationController.m */; };
-		4AB2A74C1A2D5A11005BF090 /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */; };
+		4A9A7BFA1A4095A5001C554E /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A7BF81A409565001C554E /* WFConnector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,7 @@
 		4A7B3AC21A3E65A4004D8B73 /* HistoryTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableTableViewController.m; sourceTree = "<group>"; };
 		4A95BFA81A216DC700220981 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		4A95BFA91A216DC700220981 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		4A9A7BF81A409565001C554E /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../wf_api/dependencies/WFConnector.framework; sourceTree = "<group>"; };
 		4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WFConnector.framework; path = ../../FInal_Project/wf_api/dependencies/WFConnector.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AB2A74C1A2D5A11005BF090 /* WFConnector.framework in Frameworks */,
+				4A9A7BFA1A4095A5001C554E /* WFConnector.framework in Frameworks */,
 				4A2B88381A17C32700CE4BFC /* libstdc++.6.dylib in Frameworks */,
 				4A2B88361A17C30900CE4BFC /* CoreBluetooth.framework in Frameworks */,
 				4A2B88341A17C2FF00CE4BFC /* ExternalAccessory.framework in Frameworks */,
@@ -90,6 +91,7 @@
 		4A03EA561A0DCE740096D9E5 = {
 			isa = PBXGroup;
 			children = (
+				4A9A7BF81A409565001C554E /* WFConnector.framework */,
 				4AB2A74B1A2D5A11005BF090 /* WFConnector.framework */,
 				4A2B88371A17C32700CE4BFC /* libstdc++.6.dylib */,
 				4A2B88351A17C30900CE4BFC /* CoreBluetooth.framework */,
@@ -396,6 +398,7 @@
 					"$(inherited)",
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies,
+					/Users/phil/Documents/College/CS418/Assignments/Final_Project/wf_api/dependencies,
 				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -421,6 +424,7 @@
 					"$(inherited)",
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies/mac_osx,
 					/Users/phil/Documents/College/CS418/Assignments/FInal_Project/wf_api/dependencies,
+					/Users/phil/Documents/College/CS418/Assignments/Final_Project/wf_api/dependencies,
 				);
 				INFOPLIST_FILE = CycleTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

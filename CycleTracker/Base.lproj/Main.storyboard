@@ -225,13 +225,13 @@
                                     <action selector="connectDisconnectButton:" destination="hHX-53-Apu" eventType="touchUpInside" id="daO-At-2Tj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alA-Dg-6QK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alA-Dg-6QK">
                                 <rect key="frame" x="344" y="398" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz9-TK-eB0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0 Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz9-TK-eB0">
                                 <rect key="frame" x="153" y="427" width="463" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" red="1" green="0.033515225279999998" blue="0.67611420290000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -243,8 +243,10 @@
                             <constraint firstAttribute="centerX" secondItem="Xji-Ff-EWB" secondAttribute="centerX" id="NS3-j5-RD2"/>
                             <constraint firstAttribute="centerX" secondItem="Mw7-Hm-TaX" secondAttribute="centerX" id="UWI-Mv-zdi"/>
                             <constraint firstAttribute="centerX" secondItem="VbQ-FG-JFR" secondAttribute="centerX" id="Uft-vO-xj4"/>
+                            <constraint firstAttribute="centerX" secondItem="jz9-TK-eB0" secondAttribute="centerX" constant="-0.5" id="VAD-Od-y8k"/>
                             <constraint firstAttribute="centerX" secondItem="vsC-tD-Mp6" secondAttribute="centerX" id="W9F-mR-VTX"/>
                             <constraint firstItem="l58-lX-qX4" firstAttribute="leading" secondItem="y6K-mw-axl" secondAttribute="trailing" constant="8" id="fyQ-2J-f3E"/>
+                            <constraint firstAttribute="centerX" secondItem="alA-Dg-6QK" secondAttribute="centerX" id="iBN-pb-7BA"/>
                             <constraint firstItem="jNl-rN-zky" firstAttribute="leading" secondItem="l58-lX-qX4" secondAttribute="trailing" constant="8" id="jY0-4H-mAz"/>
                             <constraint firstAttribute="centerX" secondItem="yve-RL-MQq" secondAttribute="centerX" id="kDn-NR-z9L"/>
                             <constraint firstAttribute="centerX" secondItem="5NU-Ag-Bah" secondAttribute="centerX" constant="-0.5" id="r5j-67-HKJ"/>
